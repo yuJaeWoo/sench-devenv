@@ -1,32 +1,23 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('groups', {
+    await queryInterface.createTable('Contents', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-
       },
-      membernumber: {
+      cost: {
         type: Sequelize.INTEGER
       },
-      groupname: {
+      category: {
         type: Sequelize.STRING
       },
-      groupid: {
-        type: Sequelize.INTEGER
-        // ,
-        // references: {
-        //   model: "multigroup",
-        //   key: "groupid"
-        // }
+      text: {
+        type: Sequelize.STRING
       },
-      totalcost: {
-        type: Sequelize.INTEGER
-      },
-      notice: {
+      upDown: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -40,6 +31,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('groups');
+    await queryInterface.dropTable('Contents');
   }
 };

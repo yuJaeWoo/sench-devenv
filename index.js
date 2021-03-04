@@ -8,7 +8,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
-
+const db = require("./db");
 let options = {
   exclude: ["Users"]
 }
@@ -17,6 +17,14 @@ const {generateSchema} = require('sequelize-graphql-schema')(options);
 const models = require('./models');
 // const controllers = require("./controllers");
 const controller = require("./controller");
+app.use(
+    cors({
+      origin: true,
+      credentials: true,
+      methods: ["GET", "POST", "OPTIONS"],
+    })
+);
+
 app.use(
     '/graphql',
     graphqlHTTP({
@@ -28,19 +36,28 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-    cors({
-      origin: true,
-      credentials: true,
-      methods: ["GET", "POST", "OPTIONS"],
-    })
-);
+
 app.use(cookieParser());
 app.get("/", (req,res)=>(res.send({messages: "hell world"})));
 app.post("/kakao", controller.kakao);
 app.post("/logout", controller.logout);
-// app.post("/postComment", controllers.postComment);
-// app.post("/postContent", controllers.postContent);
+app.post("/multiMeetJoin",(req, res) =>{
+  res.status(200)
+  let data = req.body
+  console.log(data)
+  db.query(`INSERT into multiMeet(userId,meetId) values(${data.userId}, ${data.meetId});`) 
+  res.send({messages: "ok"})
+});
+
+app.post("/meetContentJoin",(req, res) =>{
+  res.status(200)
+  let data = req.body
+  console.log(data)
+  db.query(`INSERT into meetContent(ontentId,meetId) values(${data.contentId}, ${data.meetId});`) 
+  res.send({messages: "ok"})
+});
+
+//app.post("/meetContentJoin", controller.meetContentJoin.meetContentJoin);
 // app.post("/signUp", controllers.signUp);
 // app.post("/signOut", controllers.signOut);
 // app.post("/deleteComment", controllers.deleteComment);

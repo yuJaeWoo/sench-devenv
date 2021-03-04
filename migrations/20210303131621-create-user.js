@@ -1,18 +1,21 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('groupcontents', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      contentid: {
+      email: {
+        type: Sequelize.STRING
+      },
+      isMeet: {
         type: Sequelize.INTEGER
       },
-      groupid: {
-        type: Sequelize.INTEGER
+      img: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('groupcontents');
+    await queryInterface.dropTable('Users');
   }
 };

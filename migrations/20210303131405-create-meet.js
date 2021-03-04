@@ -1,17 +1,26 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('multigroups', {
+    await queryInterface.createTable('Meets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      groupid: {
+      memberNumber: {
         type: Sequelize.INTEGER
       },
-      userid: {
+      meetName: {
+        type: Sequelize.STRING
+      },
+      meetId: {
+        type: Sequelize.INTEGER
+      },
+      notice: {
+        type: Sequelize.STRING
+      },
+      totalcost: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -25,6 +34,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('multigroups');
+    await queryInterface.dropTable('Meets');
   }
 };

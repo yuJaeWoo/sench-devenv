@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "root",
-    "password": "1",
+    "username": "pp8960",
+    "password": "senchdev",
     "database": "sench",
-    "host": "127.0.0.1",
+    "host": "sench-devserverdb.chpamjt0t9vb.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "1",
-    "database": "sench",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "1",
-    "database": "sench",
+    "password": null,
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
