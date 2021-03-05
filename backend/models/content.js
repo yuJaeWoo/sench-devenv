@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.INTEGER,
     category: DataTypes.STRING,
     text: DataTypes.STRING,
-    upDown: DataTypes.STRING
+    upDown: DataTypes.STRING,
+
   }, {
     sequelize,
     modelName: 'Content',

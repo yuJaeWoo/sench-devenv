@@ -1,21 +1,10 @@
 {
-  "name": "bsg-server",
+  "name": "sench-devenv",
   "version": "1.0.0",
-  "description": "'Hello Hello' 테스트입니다.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuJaeWoo/bsg-server.git"
-  },
-  "author": "yuJaeWoo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yuJaeWoo/bsg-server/issues"
-  },
-  "homepage": "https://github.com/yuJaeWoo/bsg-server#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
