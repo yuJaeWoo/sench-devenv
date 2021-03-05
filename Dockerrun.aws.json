@@ -3,21 +3,21 @@
   "containerDefinitions": [
       {
           "name": "frontend",
-          "image": "loy124/docker-frontend",
+          "image": "pp8960/docker-frontend",
           "hostname": "frontend",
           "essential": false,
           "memory": 128
       },
       {
           "name": "backend",
-          "image": "loy124/docker-backend",
+          "image": "pp8960/docker-backend",
           "hostname": "backend",
           "essential": false,
           "memory": 128
       },
       {
           "name": "nginx",
-          "image": "loy124/docker-nginx",
+          "image": "pp8960/docker-nginx",
           "hostname": "nginx",
           "essential": true,
           "portMappings": [
