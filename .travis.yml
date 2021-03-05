@@ -6,16 +6,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t loy124/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t pp8960/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run -e CI=true loy124/react-test-app npm run test
+  - docker run -e CI=true pp8960/react-test-app npm run test
 
 after_success:
   #각 이미지 빌드 
-  - docker build -t loy124/docker-frontend ./frontend
-  - docker build -t loy124/docker-backend ./backend
-  - docker build -t loy124/docker-nginx ./nginx
+  - docker build -t pp8960/docker-frontend ./frontend
+  - docker build -t pp8960/docker-backend ./backend
+  - docker build -t pp8960/docker-nginx ./nginx
   #도커 허브 로그인
   #아이디는 travis CI 홈페이지에 미리 넣어준다.
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
