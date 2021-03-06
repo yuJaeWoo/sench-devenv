@@ -8,3 +8,4 @@ multiMeet:(req, res) =>{
   db.query(`INSERT into multiMeet(userId,meetId) values('${data.userId}', '${data.meetId});`)
 }
 }
+

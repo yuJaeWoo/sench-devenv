@@ -57,6 +57,22 @@ app.post("/meetContentJoin",(req, res) =>{
   res.send({messages: "ok"})
 });
 
+
+app.post("/meetContentDelete",(req, res) =>{
+  res.status(200)
+  let data = req.body
+  console.log(data)
+  db.query(`delete from meetContent where meetId = ${data.meetId} and contentId = ${data.contentId};`)
+  res.send({messages: "ok"})
+});
+
+app.post("/multiMeetDelete",(req, res) =>{
+  res.status(200)
+  let data = req.body
+  console.log(data)
+  db.query(`delete from multiMeet where userId = ${data.userId} and meetId = ${data.meetId};`)
+  res.send({messages: "ok"})
+});
 //app.post("/meetContentJoin", controller.meetContentJoin.meetContentJoin);
 // app.post("/signUp", controllers.signUp);
 // app.post("/signOut", controllers.signOut);
