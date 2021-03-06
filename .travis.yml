@@ -20,9 +20,9 @@ after_success:
   #아이디는 travis CI 홈페이지에 미리 넣어준다.
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
   #빌드된 이미지들을 도커 허브에 push 
-  - docker push pp8960/docker-frontend
-  - docker push pp8960/docker-backend
-  - docker push pp8960/docker-nginx
+  - docker push senchbro/docker-frontend
+  - docker push senchbro/docker-backend
+  - docker push senchbro/docker-nginx
 
 deploy:
   #외부 서비스 표시(s3, elesticbeanstalk, firebase 등등)
