@@ -2,7 +2,7 @@ version: "3"
 services: 
   frontend:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./frontend
     #코드 수정후 다시이미지 build없이 코드가 반영 될 수 있게 volume을 사용한다.
     volumes:
@@ -25,7 +25,7 @@ services:
 
   backend:
     build: 
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./backend
     container_name: app_backend
     volumes:  
