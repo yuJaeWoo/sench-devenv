@@ -19,7 +19,7 @@ const models = require('./models');
 const controller = require("./controller");
 app.use(
     cors({
-      origin: true,
+      origin: "*",
       credentials: true,
       methods: ["GET", "POST", "OPTIONS"],
     })
