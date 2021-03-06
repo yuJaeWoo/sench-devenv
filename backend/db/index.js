@@ -5,7 +5,7 @@ const mysql = require("mysql");
 // export DATABASE_SPRINT_PASSWORD=your_password_here
 // const password = process.env.DATABASE_SPRINT_PASSWORD;
 
-const host = "sench-devserverdb.chpamjt0t9vb.ap-northeast-2.rds.amazonaws.com";
+const host = "senchfull.chpamjt0t9vb.ap-northeast-2.rds.amazonaws.com";
 
 // 데이터베이스 연결을 만들고, 연결 객체를 export 하세요.
 // 연결에 필요한 몇가지 정보가 있습니다. 먼저 user는 root, 패스워드는 위 password 변수를 사용하세요.
