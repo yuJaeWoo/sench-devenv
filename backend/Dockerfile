@@ -3,11 +3,12 @@ FROM node:alpine
 COPY ./package.json ./
 
 
+
 RUN npm install --save --legacy-peer-deps
 
 
 
-COPY ./ ./
+COPY . .
 
 #nodemon 사용
 CMD ["npm", "start"]
