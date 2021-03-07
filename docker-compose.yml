@@ -10,18 +10,6 @@ services:
       - ./frontend:/app
     stdin_open: true
 
-  nginx:
-    #재시작 정책
-    #no: 어떠한 상황에서도 재시작을 하지 않습니다
-    #always: 항상 재시작
-    #on-failure: 에러코드와 함께 컨테이너가 멈추었을 때만 재시작 
-    #unless-stopped 개발자가 임의로 멈추려고 할때 빼고는 항상 재시작
-    restart: always
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
-    ports:
-      - "3000:80"
 
   backend:
     build: 
