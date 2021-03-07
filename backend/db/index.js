@@ -16,7 +16,8 @@ let connection = mysql.createConnection({
   host,
   user: "pp8960",
   password: "senchdev",
-  database: "sench"
+  database: "sench",
+  port: 3306
 });
 
 connection.connect();
