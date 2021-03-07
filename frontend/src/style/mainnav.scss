@@ -1,0 +1,273 @@
+$maincolor : #1474F8;
+$maincolor2 : #EDA28F;
+$koreanFont : 'Noto Sans KR', sans-serif;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 4px 12px;
+  position: fixed;
+  width:100%;
+  z-index: 5;
+  top: 0;
+}
+
+.sidebar {
+  display:none;
+}
+
+.navbar__logo a {
+  font-family: 'Fredoka One', cursive;
+}
+
+.navbar__logo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  color: $maincolor;
+}
+
+.navbar__logo:hover {
+  cursor: pointer;
+}
+
+.navbar__menu{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  color: $maincolor;
+  padding-left: 0;
+  width: 30%;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.navbar__menu li:hover {
+  // background-color: #778beb;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.navBtns {
+  padding: px;
+}
+
+.navBtns:hover {
+  cursor: pointer;
+}
+
+.navbar__handleLogin{
+  display: flex;
+  color: $maincolor;
+  width: 5%;
+  margin-right: 10px;
+}
+
+.navbar__loginBtn {
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  color: white;
+  background-color: $maincolor;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.userProfileNav {
+  border-radius: 50px;
+  width: 40%;
+  height: 40%;
+  border: 2px solid white;
+}
+
+.userProfileNav {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 43px;
+  width: 50px;
+  height: 50px;
+  font-size: 1rem;
+  background-color: $maincolor2;
+  color: white;
+  border : solid $maincolor2 3px;
+  font-weight: 500;
+}
+
+.navbar__toogleBtn{
+  display: none;
+  position:absolute;
+  right: 24px;
+  font-size: 20px;
+  color: black;
+}
+.sidebar__menu {
+  display:none;
+  position: relative;
+  flex-direction: column;
+  align-items:center;
+  padding: 20%;
+  transform: translateX(20px);
+  transition: all 800ms
+}
+.sidebar__menu li {
+  list-style: none;
+  margin-top: 50%;
+}
+.sidebar__handleLogin {
+  display:none;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+.sidebar__profile {
+  display:none;
+  position: relative;
+  left: 25%;
+  top: 5%;
+}
+.navbar__handleLogin {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDropDownOff {
+  display: none;
+}
+
+.profileDropDown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 150px;
+  height: 100px;
+  background-color: $maincolor2;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding: 5px
+}
+.btnInProfileDrop{
+  cursor:pointer;
+  color: #FFFF;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: $maincolor2;
+  height: 50%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  letter-spacing: 1px;
+}
+
+.btnInProfileDroptop {
+  cursor:pointer;
+  color: #FFFF;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: $maincolor2;
+  height: 50%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  letter-spacing: 1px;
+  border-bottom: 2px solid snow;
+}
+
+.showDropDown {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    transform: translateX(20px);
+    height: 100%; // 변경
+    width: 300px;
+    transition: all 0.3s ease-in-out 0s;
+    top:0;
+    right:0;
+  }
+  .navbar__menu {
+    display: none;
+  }
+  .navbar__handleLogin {
+    display: none;
+  }
+  .sidebar.active {
+    display:block;
+    position: fixed;
+    transform: translateX(0px);
+    transition: all 0.3s ease-in-out 0s;
+    background-color: #dcdde1;
+    z-index:1;
+  }
+  .sidebar__profile.active {
+    display:flex;
+  }
+
+  .sidebar__image {
+    width: 20%;
+  }
+
+  .sidebar__menu.active {
+ 
+    display:flex;
+    font-size: 1.5rem;
+    transform: translateX(0px);
+  }
+
+  .sidebar__handleLogin.active {
+    display:flex;
+    font-size: 1.5rem;
+    margin-top : 300px;
+
+  }
+
+  .navbar__toogleBtn{
+    display: block;
+    cursor: pointer;
+    z-index:6;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+  }
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar__menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar__icons {
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+  .navbar__toogleBtn {
+    display: block;
+    font-size: 30px;
+  }
+  .navbar__menu.active,
+  .navbar__icons.active {
+    display: flex;
+  }
+  .navbar__logo {
+    font-size: 25px;
+  }
+}
+
+
