@@ -41,6 +41,7 @@ app.use(cookieParser());
 app.get("/", (req,res)=>(res.send({messages: "hell world"})));
 app.post("/kakao", controller.kakao);
 app.post("/logout", controller.logout);
+
 app.post("/multiMeetJoin",(req, res) =>{
   res.status(200)
   let data = req.body
@@ -53,7 +54,7 @@ app.post("/meetContentJoin",(req, res) =>{
   res.status(200)
   let data = req.body
   console.log(data)
-  db.query(`INSERT into meetContent(ontentId,meetId) values(${data.contentId}, ${data.meetId});`) 
+  db.query(`INSERT into meetContent(contentId,meetId) values(${data.contentId}, ${data.meetId});`)
   res.send({messages: "ok"})
 });
 
@@ -79,8 +80,6 @@ app.post("/meetDel",(req, res) =>{
   let data = req.body
   console.log(data)
   db.query(`delete from multiMeet where meetId = ${data.meetId};`)
-  db.query(`delete from meetContent where meetId = ${data.meetId};`)
-  db.query(`delete from Meets where where meetId = ${data.meetId};`)
   res.send({messages: "ok"})
 });
 //app.post("/meetContentJoin", controller.meetContentJoin.meetContentJoin);
