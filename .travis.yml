@@ -12,7 +12,7 @@ script: skip
 
 after_success:
   #각 이미지 빌드
-  - docker build -t loy124/docker-backend ./backend
+  - docker build -t pp8960/docker-backend ./backend
   #도커 허브 로그인
   #아이디는 travis CI 홈페이지에 미리 넣어준다.
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
