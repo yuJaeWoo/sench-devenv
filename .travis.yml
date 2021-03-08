@@ -18,6 +18,8 @@ after_success:
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
   #빌드된 이미지들을 도커 허브에 push
   - docker push pp8960/docker-backend
+  - sudo iptables -A PREROUTING -t nat -i eth0 -p tcp —dport 80 -j REDIRECT —to-port 4000
+  - sudo iptables -A PREROUTING -t nat -i eth0 -p tcp —dport 443 -j REDIRECT —to-port 4000
 
 deploy:
   #외부 서비스 표시(s3, elesticbeanstalk, firebase 등등)
