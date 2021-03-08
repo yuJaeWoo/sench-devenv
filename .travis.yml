@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10.14"
+  - "15"
 before_install:
   - npm install -g yarn
 script: skip
@@ -40,4 +40,9 @@ deploy:
       repo: yuJaeWoo/sench-devenv
       branch: main
 
+notifications:
+  email:
+    recipients:
+      - yoo8960@gmail.com
+:
 
