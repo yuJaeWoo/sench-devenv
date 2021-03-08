@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use(cookieParser());
-app.get("/", (req,res)=>(res.send({messages: "hello world"})));
+app.get("/", (req,res)=>(res.send({messages: "hell world"})));
 app.post("/kakao", controller.kakao);
 app.post("/logout", controller.logout);
 
@@ -80,6 +80,16 @@ app.post("/meetDel",(req, res) =>{
   let data = req.body
   console.log(data)
   db.query(`delete from multiMeet where meetId = ${data.meetId};`)
+  db.query(`delete from meetContent where meetId = ${data.meetId};`)
+
+  res.send({messages: "ok"})
+});
+
+app.post("/contentDel",(req, res) =>{
+  res.status(200)
+  let data = req.body
+  console.log(data)
+  db.query(`delete from meetContent where contentId = ${data.contentId};`)
   res.send({messages: "ok"})
 });
 //app.post("/meetContentJoin", controller.meetContentJoin.meetContentJoin);
