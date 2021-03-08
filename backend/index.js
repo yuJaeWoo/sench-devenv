@@ -115,8 +115,8 @@ app.post("/contentDel",(req, res) =>{
 //     });
 
 
-app.listen(4000, function() {
-  console.log('RUNNING ON 4000. Graphiql http://localhost:4000/graphql')
+app.listen(5000, function() {
+  console.log('RUNNING ON 5000. Graphiql http://localhost:5000/graphql')
 })
 
 module.exports = app;
