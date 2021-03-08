@@ -5,7 +5,7 @@ before_install:
   - npm install -g yarn
 branches:
   only:
-    - master
+    - main
 #before_install:
 #  - docker build -t pp8960/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 #
