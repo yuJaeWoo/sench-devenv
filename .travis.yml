@@ -6,53 +6,37 @@ before_install:
 branches:
   only:
     - main
-#before_install:
-#  - docker build -t pp8960/react-test-app -f ./frontend/Dockerfile.dev ./frontend
-#
-#
-#
-#after_success:
-#  #각 이미지 빌드
-##  - docker build -t pp8960/docker-frontend ./frontend
-#  - docker build -t pp8960/docker-backend ./backend
-#
-#  #도커 허브 로그인
-#  #아이디는 travis CI 홈페이지에 미리 넣어준다.
-#  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
-#  #빌드된 이미지들을 도커 허브에 push
-##  - docker push senchbro/docker-frontend
-#  - docker push senchbro/docker-backend
 
-before_deploy: # 배포하기전 하는 작업들
-  - rm -rf node_modules # travis가 설치한 node_moduels를 삭제
-  - zip -r sench-devenv * # node-koa-server 라는 이름으로 zip 파일 생성
-  - mkdir -p deploy # deploy 라는 디렉터리를 만듬
-  - mv sench-devenv.zip deploy/sench-devenv.zip # deploy 디렉터리로 node-koa-server.zip 파일을 이동
+before_deploy:
+  - rm -rf node_modules
+  - zip -r sench-devenv *
+  - mkdir -p deploy
+  - mv sench-devenv.zip deploy/sench-devenv.zip
 
 deploy:
-  - provider: S3 # AWS S3를 의미
-      access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-      secret_access_key: $AWS_SECRET_ACCESS_KEY # Travis repo settings에 설정된 값
-      bucket: senchcicd # S3에 생성한 버킷
-      region: ap-northeast-2
-      skip_cleanup: true
-      local_dir: deploy # deploy 디렉터리에 있는 파일을 s3로 업로드 하겠다는 의미
-      wait-until-deployed: true
-      on:
-        repo: yuJaeWoo/sench-devenv #Github 주소
-        branch: main
-    - provider: codedeploy # AWS CodeDeploy를 의미
-      access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-      secret_access_key: $AWS_ACCESS_SECRET_KEY # Travis repo settings에 설정된 값
-      bucket: senchcicd # AWS CodeDeploy가 다운로드 받은 버킷
-      key: sench-devenv.zip # 해당 버킷에 저장되어 있는 파일 이름
-      bundle_type: zip # 버킷에 저장되어 있는 파일의 확장자
-      application: cdservice # AWS 배포 애플리케이션
-      deployment_group: cicddeploygroup # AWS 배포 애플리케이션에 만들어져 있는 배포 그룹
-      region: ap-northeast-2
-      wait-until-deployed: true
-      on:
-        repo: yuJaeWoo/sench-devenv
-        branch: main
+  - provider: S3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: senchcicd
+    region: ap-northeast-2
+    skip_cleanup: true
+    local_dir: deploy
+    wait-until-deployed: true
+    on:
+      repo: yuJaeWoo/sench-devenv
+      branch: main
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_ACCESS_SECRET_KEY
+    bucket: senchcicd
+    key: sench-devenv.zip
+    bundle_type: zip
+    application: cdservice
+    deployment_group: cicddeploygroup
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: yuJaeWoo/sench-devenv
+      branch: main
 
 
