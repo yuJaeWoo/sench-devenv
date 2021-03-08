@@ -3,6 +3,7 @@ node_js:
   - "10.14"
 before_install:
   - npm install -g yarn
+script: skip
 branches:
   only:
     - main
