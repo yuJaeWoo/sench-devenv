@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use(cookieParser());
-app.get("/", (req,res)=>(res.send({messages: "hell world"})));
+app.get("/", (req,res)=>(res.send({messages: "hello world"})));
 app.post("/kakao", controller.kakao);
 app.post("/logout", controller.logout);
 
