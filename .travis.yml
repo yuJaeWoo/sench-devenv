@@ -30,7 +30,7 @@ before_deploy: # 배포하기전 하는 작업들
   - mv sench-devenv.zip deploy/sench-devenv.zip # deploy 디렉터리로 node-koa-server.zip 파일을 이동
 
 deploy:
-  - provider: s3 # AWS S3를 의미
+  - provider: S3 # AWS S3를 의미
       access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
       secret_access_key: $AWS_SECRET_ACCESS_KEY # Travis repo settings에 설정된 값
       bucket: senchcicd # S3에 생성한 버킷
