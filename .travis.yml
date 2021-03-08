@@ -1,11 +1,11 @@
-language: generic
-
-sudo: required
-
-#services:
-#  - docker
+language: node_js
+node_js:
+  - "10.14"
 before_install:
   - npm install -g yarn
+branches:
+  only:
+    - master
 #before_install:
 #  - docker build -t pp8960/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 #
