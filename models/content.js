@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-     Content.belongsToMany(models.Meet,{through: 'meetContent', foreignKey: 'contentId'})
     }
   };
   Content.init({
-    cost: DataTypes.INTEGER,
     category: DataTypes.STRING,
-    text: DataTypes.STRING,
+    cost: DataTypes.INTEGER,
+    dateTime: DataTypes.STRING,
+    desc: DataTypes.STRING,
+    meetId: DataTypes.INTEGER,
     upDown: DataTypes.STRING
   }, {
     sequelize,
